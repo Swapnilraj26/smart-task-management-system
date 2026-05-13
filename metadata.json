@@ -1,0 +1,6 @@
+{
+  "name": "Smart Task Management System",
+  "description": "A microservices-based application for managing users, tasks, projects, and notifications with a modern dark-themed dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

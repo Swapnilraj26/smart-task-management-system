@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: #05070a;
+  --color-bg-card: #0d1117;
+  --color-border-main: #30363d;
+  --color-text-main: #e6edf3;
+  --color-text-dim: #848d97;
+  
+  --color-accent-user: #3fb950;
+  --color-accent-task: #1f6feb;
+  --color-accent-project: #bc8cff;
+  --color-accent-notify: #f85149;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-deep text-text-main font-sans antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(31, 111, 235, 0.03) 0, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(188, 140, 255, 0.03) 0, transparent 50%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glow-card {
+    @apply relative bg-bg-card border border-border-main rounded-xl p-4 overflow-hidden transition-all duration-300;
+  }
+
+  .glow-card:hover {
+    @apply border-zinc-600 -translate-y-0.5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .glow-card::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-[2px] opacity-80;
+  }
+
+  .glow-card.card-user::before { @apply bg-accent-user shadow-[0_0_10px_var(--color-accent-user)]; }
+  .glow-card.card-task::before { @apply bg-accent-task shadow-[0_0_10px_var(--color-accent-task)]; }
+  .glow-card.card-project::before { @apply bg-accent-project shadow-[0_0_10px_var(--color-accent-project)]; }
+  .glow-card.card-notify::before { @apply bg-accent-notify shadow-[0_0_10px_var(--color-accent-notify)]; }
+
+  .status-pill {
+    @apply bg-accent-user/10 border border-accent-user text-accent-user px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider;
+  }
+
+  .port-tag {
+    @apply font-mono text-[10px] bg-black/40 px-1.5 py-0.5 rounded border border-border-main text-text-dim;
+  }
+
+  .input-field {
+    @apply bg-bg-deep border border-border-main rounded px-3 py-2 text-xs text-text-main outline-none focus:border-zinc-500 transition-colors w-full;
+  }
+
+  .btn-accent {
+    @apply px-4 py-2 rounded text-xs font-bold text-white transition-opacity hover:opacity-90 active:scale-95;
+  }
+}
