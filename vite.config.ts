@@ -20,11 +20,14 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
+      host: '0.0.0.0',
       hmr: process.env.DISABLE_HMR !== 'true',
     },
 
     preview: {
-      allowedHosts: ['smart-task-management-system-gebb.onrender.com'],
+      host: '0.0.0.0',
+      port: 10000,
+      allowedHosts: true,
     },
   };
 });
